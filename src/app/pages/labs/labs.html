@@ -7,9 +7,11 @@
   </h2>
 
   <ul>
-    <li *ngFor="let task of task()">
-      {{ task }}
-    </li>
+    @for (task of task(); track task) {
+      <li>
+        {{ task }}
+      </li>
+    }
   </ul>
 
   <hr />
@@ -42,9 +44,11 @@
 
   <ul>
     <p> Total: {{ task().length }}</p>
-    <li *ngFor="let task of task(); index as i">
-      <strong>Task {{i + 1}}:</strong> {{ task }}
-    </li>
+    @for (task of task(); track task; let i = $index) {
+      <li>
+        <strong>Task {{i + 1}}:</strong> {{ task }}
+      </li>
+    }
   </ul>
 
 
